@@ -2,8 +2,8 @@
 
 This directory contains the automatically generated documentation for the project.
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## [include Files](include/)
 

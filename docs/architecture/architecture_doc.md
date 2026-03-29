@@ -6,8 +6,8 @@ The `cxx_docu_gen` is a C++23-based documentation tool that extracts Doxygen com
 
 ---
 
-<!-- DOCTOC SKIP -->
-<!-- START doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
 

@@ -64,7 +64,10 @@ generate_markdown(const FileDoc &doc,
   out << "| **Copyright** | " << doc.header.copyright << " |\n";
   out << "| **License** | " << doc.header.license << " |\n\n";
 
-  out << "<!-- START doctoc -->\n<!-- END doctoc -->\n\n";
+  out << "<!-- START doctoc generated TOC please keep comment here to allow "
+         "auto update -->\n";
+  out << "<!-- END doctoc generated TOC please keep comment here to allow auto "
+         "update -->\n\n";
 
   out << "## API Documentation\n\n";
   for (const auto &e : doc.entries) {
@@ -102,7 +105,10 @@ generate_index(const std::vector<FileDoc> &docs,
       << "This directory contains the automatically generated documentation "
          "for the project.\n\n";
 
-  out << "<!-- START doctoc -->\n<!-- END doctoc -->\n\n";
+  out << "<!-- START doctoc generated TOC please keep comment here to allow "
+         "auto update -->\n";
+  out << "<!-- END doctoc generated TOC please keep comment here to allow auto "
+         "update -->\n\n";
 
   // Group docs by relative path
   std::map<std::string, std::vector<const FileDoc *>> grouped_docs;
