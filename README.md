@@ -13,8 +13,21 @@
 
 ---
 
-<!-- START doctoc -->   // fix position of TOC; otherwise on top of markdown file
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Description](#description)
+- [Documentation Overview](#documentation-overview)
+- [Architecture Overview](#architecture-overview)
+  - [Bounded Context Diagram](#bounded-context-diagram)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Build and Run](#build-and-run)
+- [📄 License](#-license)
+- [🤝 Authors](#-authors)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
 
