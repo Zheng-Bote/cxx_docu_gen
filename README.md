@@ -59,10 +59,10 @@ graph TD
 ### Build and Run
 
 ```bash
-mkdir build && cd build
-cmake ..
-make
-./docu_gen [optional/source/path]
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j"$(nproc)"
+cd build && sudo make install
+cxx_docu_gen [optional/source/path]
 ```
 
 ## 📄 License

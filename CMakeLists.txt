@@ -1,7 +1,7 @@
 # CMakeLists.txt
 cmake_minimum_required(VERSION 3.28)
 project(cxx_docu_gen
-    VERSION 1.0.0
+    VERSION 1.1.0
     DESCRIPTION "C++23 Documentation Generator"
     HOMEPAGE_URL "https://github.com/Zheng-Bote/cxx_docu_gen"
     LANGUAGES CXX)

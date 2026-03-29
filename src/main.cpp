@@ -7,7 +7,7 @@
  *
  * @file main.cpp
  * @brief Clean main file orchestrating the tool.
- * @version 0.1.2
+ * @version 0.1.3
  * @date 2026-03-29
  *
  * @author ZHENG Robert (robert@hase-zheng.net)
@@ -48,6 +48,7 @@ int main(int argc, char* argv[]) {
 
     const std::vector<std::string> target_subdirs = {"src", "include"};
     bool found_any = false;
+    std::vector<docu::FileDoc> all_docs;
 
     for (const auto& subdir : target_subdirs) {
         fs::path search_path = base_path / subdir;
@@ -81,6 +82,8 @@ int main(int argc, char* argv[]) {
                 if (res) {
                     if (auto g = docu::generate_markdown(*res, out); !g) {
                         std::println(stderr, "Error generating MD for {}", display_path);
+                    } else {
+                        all_docs.push_back(*res);
                     }
                 } else {
                     std::println(stderr, "Error parsing {}: {}", display_path, res.error());
@@ -93,6 +96,11 @@ int main(int argc, char* argv[]) {
 
     if (!found_any) {
         std::println("No 'src' or 'include' folders found to process.");
+    } else if (!all_docs.empty()) {
+        std::println("Generating index README.md...");
+        if (auto res = docu::generate_index(all_docs, out); !res) {
+            std::println(stderr, "Error generating index: {}", res.error());
+        }
     }
 
     std::println("Documentation generation completed.");

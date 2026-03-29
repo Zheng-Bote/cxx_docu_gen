@@ -7,7 +7,7 @@
  *
  * @file markdown_generator_util.hpp
  * @brief Functions to format extracted documentation into Markdown files.
- * @version 0.1.1
+ * @version 0.1.2
  * @date 2026-03-29
  *
  * @author ZHENG Robert (robert@hase-zheng.net)
@@ -22,6 +22,7 @@
 #include "doc_model_type.hpp"
 #include <filesystem>
 #include <expected>
+#include <vector>
 
 /**
  * @namespace docu
@@ -36,6 +37,14 @@ namespace docu {
  * @return std::expected<void, std::string> Success or an error.
  */
 [[nodiscard]] std::expected<void, std::string> generate_markdown(const FileDoc& doc, const std::filesystem::path& output_base_dir);
+
+/**
+ * @brief Generates a README.md index for all documented files.
+ * @param docs The list of parsed documentation data objects.
+ * @param output_base_dir The base directory for documentation output.
+ * @return std::expected<void, std::string> Success or an error.
+ */
+[[nodiscard]] std::expected<void, std::string> generate_index(const std::vector<FileDoc>& docs, const std::filesystem::path& output_base_dir);
 
 } // namespace docu
 

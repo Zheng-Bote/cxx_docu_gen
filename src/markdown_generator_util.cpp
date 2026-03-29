@@ -7,7 +7,7 @@
  *
  * @file markdown_generator_util.cpp
  * @brief Generates formatted MD files.
- * @version 0.1.1
+ * @version 0.1.3
  * @date 2026-03-29
  *
  * @author ZHENG Robert (robert@hase-zheng.net)
@@ -17,8 +17,12 @@
  */
 
 #include "markdown_generator_util.hpp"
-#include <fstream>
+#include <algorithm>
 #include <filesystem>
+#include <fstream>
+#include <map>
+#include <print>
+#include <vector>
 
 /**
  * @namespace docu
@@ -33,43 +37,95 @@ namespace docu {
  * @param output_base_dir The base directory for documentation output.
  * @return std::expected<void, std::string> Success or an error message.
  */
-std::expected<void, std::string> generate_markdown(const FileDoc& doc, const std::filesystem::path& output_base_dir) {
-    auto target_dir = output_base_dir / doc.relative_path;
-    std::filesystem::create_directories(target_dir);
+std::expected<void, std::string>
+generate_markdown(const FileDoc &doc,
+                  const std::filesystem::path &output_base_dir) {
+  auto target_dir = output_base_dir / doc.relative_path;
+  std::filesystem::create_directories(target_dir);
 
-    std::ofstream out(target_dir / (doc.file_name + ".md"));
-    if (!out) return std::unexpected("Could not create file");
+  std::ofstream out(target_dir / (doc.file_name + ".md"));
+  if (!out)
+    return std::unexpected("Could not create file");
 
-    out << "# " << doc.file_name << "\n\n";
-    out << "## File Header Information\n\n";
-    out << "| Field | Value |\n";
-    out << "| :--- | :--- |\n";
-    out << "| **SPDX Comment** | " << doc.header.spdx_comment << " |\n";
-    out << "| **SPDX Type** | " << doc.header.spdx_type << " |\n";
-    out << "| **Contributor** | " << doc.header.spdx_contributor << " |\n";
-    out << "| **License ID** | " << doc.header.spdx_license_id << " |\n";
-    out << "| **File** | `" << doc.header.file_name << "` |\n";
-    out << "| **Description** | " << doc.header.description << " |\n";
-    out << "| **Version** | " << doc.header.version << " |\n";
-    out << "| **Date** | " << doc.header.date << " |\n";
-    out << "| **Author** | " << doc.header.author << " |\n";
-    out << "| **Copyright** | " << doc.header.copyright << " |\n";
-    out << "| **License** | " << doc.header.license << " |\n\n";
+  out << "# " << doc.file_name << "\n\n";
 
-    out << "## API Documentation\n\n";
-    for (const auto& e : doc.entries) {
-        out << "### `" << e.signature << "`\n\n";
-        out << "> " << e.brief << "\n\n";
-        if (!e.params.empty()) {
-            out << "| Parameter | Description |\n| --- | --- |\n";
-            for (const auto& [n, d] : e.params) out << "| `" << n << "` | " << d << " |\n";
-            out << "\n";
-        }
-        if (!e.returns.empty()) out << "**Returns:** " << e.returns << "\n\n";
-        out << "---\n\n";
+  out << "## File Header Information\n\n";
+  out << "| Field | Value |\n";
+  out << "| :--- | :--- |\n";
+  out << "| **SPDX Comment** | " << doc.header.spdx_comment << " |\n";
+  out << "| **SPDX Type** | " << doc.header.spdx_type << " |\n";
+  out << "| **Contributor** | " << doc.header.spdx_contributor << " |\n";
+  out << "| **License ID** | " << doc.header.spdx_license_id << " |\n";
+  out << "| **File** | `" << doc.header.file_name << "` |\n";
+  out << "| **Description** | " << doc.header.description << " |\n";
+  out << "| **Version** | " << doc.header.version << " |\n";
+  out << "| **Date** | " << doc.header.date << " |\n";
+  out << "| **Author** | " << doc.header.author << " |\n";
+  out << "| **Copyright** | " << doc.header.copyright << " |\n";
+  out << "| **License** | " << doc.header.license << " |\n\n";
+
+  out << "<!-- START doctoc -->\n<!-- END doctoc -->\n\n";
+
+  out << "## API Documentation\n\n";
+  for (const auto &e : doc.entries) {
+    out << "### `" << e.signature << "`\n\n";
+    out << "> " << e.brief << "\n\n";
+    if (!e.params.empty()) {
+      out << "| Parameter | Description |\n| --- | --- |\n";
+      for (const auto &[n, d] : e.params)
+        out << "| `" << n << "` | " << d << " |\n";
+      out << "\n";
     }
+    if (!e.returns.empty())
+      out << "**Returns:** " << e.returns << "\n\n";
+    out << "---\n\n";
+  }
 
-    return {};
+  return {};
+}
+
+/**
+ * @brief Generates a README.md index for all documented files.
+ *
+ * @param docs The list of parsed documentation data objects.
+ * @param output_base_dir The base directory for documentation output.
+ * @return std::expected<void, std::string> Success or an error message.
+ */
+std::expected<void, std::string>
+generate_index(const std::vector<FileDoc> &docs,
+               const std::filesystem::path &output_base_dir) {
+  std::ofstream out(output_base_dir / "README.md");
+  if (!out)
+    return std::unexpected("Could not create README.md");
+
+  out << "# Source Code Documentation Index\n\n"
+      << "This directory contains the automatically generated documentation "
+         "for the project.\n\n";
+
+  out << "<!-- START doctoc -->\n<!-- END doctoc -->\n\n";
+
+  // Group docs by relative path
+  std::map<std::string, std::vector<const FileDoc *>> grouped_docs;
+  for (const auto &doc : docs) {
+    grouped_docs[doc.relative_path].push_back(&doc);
+  }
+
+  for (auto &[path, file_list] : grouped_docs) {
+    std::ranges::sort(file_list, [](const auto *a, const auto *b) {
+      return a->file_name < b->file_name;
+    });
+
+    out << "## [" << path << " Files](" << path << "/)\n\n";
+    for (const auto *doc : file_list) {
+      out << "- [" << doc->file_name << ".md](" << doc->relative_path << "/"
+          << doc->file_name << ".md) - " << doc->header.description << "\n";
+    }
+    out << "\n";
+  }
+
+  out << "---\n\n*Generated by cxx_docu_gen*\n";
+
+  return {};
 }
 
 } // namespace docu

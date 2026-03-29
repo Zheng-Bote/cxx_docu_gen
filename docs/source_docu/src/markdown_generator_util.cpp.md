@@ -10,11 +10,14 @@
 | **License ID** | Apache-2.0 |
 | **File** | `markdown_generator_util.cpp` |
 | **Description** | Generates formatted MD files. |
-| **Version** | 0.1.1 |
+| **Version** | 0.1.3 |
 | **Date** | 2026-03-29 |
 | **Author** | ZHENG Robert (robert@hase-zheng.net) |
 | **Copyright** | Copyright (c) 2026 ZHENG Robert |
 | **License** | Apache-2.0 |
+
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 ## API Documentation
 
@@ -24,13 +27,26 @@
 
 ---
 
-### `std::expected<void, std::string> generate_markdown(const FileDoc& doc, const std::filesystem::path& output_base_dir) `
+### `std::expected<void, std::string>`
 
 > Generates a Markdown file from a FileDoc object.
 
 | Parameter | Description |
 | --- | --- |
 | `doc` | The parsed documentation data. |
+| `output_base_dir` | The base directory for documentation output. |
+
+**Returns:** std::expected<void, std::string> Success or an error message.
+
+---
+
+### `std::expected<void, std::string>`
+
+> Generates a README.md index for all documented files.
+
+| Parameter | Description |
+| --- | --- |
+| `docs` | The list of parsed documentation data objects. |
 | `output_base_dir` | The base directory for documentation output. |
 
 **Returns:** std::expected<void, std::string> Success or an error message.
