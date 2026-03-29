@@ -1,3 +1,17 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [doc_model_type.hpp](#doc_model_typehpp)
+  - [File Header Information](#file-header-information)
+  - [API Documentation](#api-documentation)
+    - [`namespace docu `](#namespace-docu-)
+    - [`struct FileHeader `](#struct-fileheader-)
+    - [`struct DocEntry `](#struct-docentry-)
+    - [`struct FileDoc `](#struct-filedoc-)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # doc_model_type.hpp
 
 ## File Header Information

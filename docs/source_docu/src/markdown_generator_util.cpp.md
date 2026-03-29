@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [markdown_generator_util.cpp](#markdown_generator_utilcpp)
+  - [File Header Information](#file-header-information)
+  - [API Documentation](#api-documentation)
+    - [`namespace docu `](#namespace-docu-)
+    - [`std::expected<void, std::string> generate_markdown(const FileDoc& doc, const std::filesystem::path& output_base_dir) `](#stdexpectedvoid-stdstring-generate_markdownconst-filedoc-doc-const-stdfilesystempath-output_base_dir-)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # markdown_generator_util.cpp
 
 ## File Header Information
