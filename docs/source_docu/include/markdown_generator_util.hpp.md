@@ -7,6 +7,7 @@
   - [API Documentation](#api-documentation)
     - [`namespace docu `](#namespace-docu-)
     - [`[[nodiscard]] std::expected<void, std::string> generate_markdown(const FileDoc& doc, const std::filesystem::path& output_base_dir)`](#nodiscard-stdexpectedvoid-stdstring-generate_markdownconst-filedoc-doc-const-stdfilesystempath-output_base_dir)
+    - [`[[nodiscard]] std::expected<void, std::string> generate_index(const std::vector<FileDoc>& docs, const std::filesystem::path& output_base_dir)`](#nodiscard-stdexpectedvoid-stdstring-generate_indexconst-stdvectorfiledoc-docs-const-stdfilesystempath-output_base_dir)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

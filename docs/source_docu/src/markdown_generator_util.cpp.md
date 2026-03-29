@@ -6,7 +6,8 @@
   - [File Header Information](#file-header-information)
   - [API Documentation](#api-documentation)
     - [`namespace docu `](#namespace-docu-)
-    - [`std::expected<void, std::string> generate_markdown(const FileDoc& doc, const std::filesystem::path& output_base_dir) `](#stdexpectedvoid-stdstring-generate_markdownconst-filedoc-doc-const-stdfilesystempath-output_base_dir-)
+    - [`std::expected<void, std::string>`](#stdexpectedvoid-stdstring)
+    - [`std::expected<void, std::string>`](#stdexpectedvoid-stdstring-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
