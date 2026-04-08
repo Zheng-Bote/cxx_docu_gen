@@ -1,0 +1,43 @@
+name: C++23 Documentation Generator
+description: GitHub Action to generate C++23 documentation from Doxygen comments.
+author: Zheng Robert
+
+branding:
+  icon: "book-open"
+  color: "blue"
+
+inputs:
+  sources:
+    description: "Path to the source directory (e.g., src)"
+    required: false
+  includes:
+    description: "Path to the include directory (e.g., include)"
+    required: false
+  base_path:
+    description: "Base path for the project (default is current directory)"
+    required: false
+    default: "."
+
+runs:
+  using: "composite"
+  steps:
+    - name: Download C++ Documentation Generator
+      shell: bash
+      run: |
+        # Download the latest release of cxx_docu_gen
+        wget -q https://github.com/Zheng-Bote/cxx_docu_gen/releases/latest/download/cxx_docu_gen
+        chmod +x cxx_docu_gen
+
+    - name: Run C++ Documentation Generator
+      shell: bash
+      run: |
+        ARGS=""
+        if [ -n "${{ inputs.sources }}" ]; then
+          ARGS="$ARGS --sources ${{ inputs.sources }}"
+        fi
+        if [ -n "${{ inputs.includes }}" ]; then
+          ARGS="$ARGS --includes ${{ inputs.includes }}"
+        fi
+
+        echo "Running: ./cxx_docu_gen ${{ inputs.base_path }} $ARGS"
+        ./cxx_docu_gen ${{ inputs.base_path }} $ARGS

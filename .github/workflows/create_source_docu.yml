@@ -1,0 +1,43 @@
+name: C++ Documentation Generator
+
+run-name: C++ Documentation Generator by ${{ github.actor }}
+
+on:
+  workflow_dispatch:
+  workflow_call:
+  push:
+    branches: [main, master]
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run C++ Documentation Generator
+        uses: Zheng-Bote/cxx_docu_gen@v1
+        with:
+          sources: "src"
+          includes: "include"
+          base_path: "."
+
+      - name: Commit C++ Documentation Generator reports
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Reports hinzufügen
+          git add docs/source_docu || true
+
+          # Nur committen, wenn es Änderungen gibt
+          if ! git diff --cached --quiet; then
+            git commit -m "Add C++ Documentation Generator reports [skip ci]"
+            git push
+          else
+            echo "No changes to commit."
+          fi

@@ -3,12 +3,12 @@
 **Table of Contents**
 
 - [Changelog](#changelog)
-  - [[1.1.0] - 2026-03-29](#110---2026-03-29)
+  - [[1.2.0] - 2026-04-08](#120---2026-04-08)
     - [Added](#added)
-  - [[1.0.0] - 2026-03-29](#100---2026-03-29)
-    - [Added](#added-1)
+    - [Changed](#changed)
+  - [[1.1.0] - 2026-03-29](#110---2026-03-29)
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+...
 
 # Changelog
 
@@ -16,6 +16,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.2.0] - 2026-04-08
+
+### Added
+- Fully static linking for GCC/Clang via `-static`.
+- Support for `--sources <path>` and `--includes <path>` command-line parameters.
+- GitHub Action integration (`action.yml`).
+
+### Changed
+- Updated `main.cpp` version to 0.1.4.
 
 ## [1.1.0] - 2026-03-29
 

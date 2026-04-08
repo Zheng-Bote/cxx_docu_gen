@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -24,6 +25,9 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Build and Run](#build-and-run)
+- [GitHub Action](#github-action)
+  - [Inputs](#inputs)
+  - [Example Workflow](#example-workflow)
 - [📄 License](#-license)
 - [🤝 Authors](#-authors)
 
@@ -75,7 +79,36 @@ graph TD
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j"$(nproc)"
 cd build && sudo make install
-cxx_docu_gen [optional/source/path]
+cxx_docu_gen [optional/base/path] [--sources <src_path>] [--includes <include_path>]
+```
+
+## GitHub Action
+
+You can use this tool as a GitHub Action.
+
+### Inputs
+
+| Input       | Description                   | Default       |
+| ----------- | ----------------------------- | ------------- |
+| `sources`   | Path to the source directory  | (auto-detect) |
+| `includes`  | Path to the include directory | (auto-detect) |
+| `base_path` | Base path for the project     | `.`           |
+
+> [!TIP]
+> See [.github/workflows/create_source_docu.yml](.github/workflows/create_source_docu.yml)
+> See [GitHub Action](.github/actions/doctoc/README.md) for more information.
+
+### Example Workflow
+
+```yaml
+# snippet of a workflow
+
+- name: Run Source Code Documentation Generator
+  uses: Zheng-Bote/cxx_docu_gen@v1
+  with:
+    sources: "src" # optional, default is ./src
+    includes: "include" # optional, default is ./include
+    base_path: "." # optional, default is ./
 ```
 
 ## 📄 License

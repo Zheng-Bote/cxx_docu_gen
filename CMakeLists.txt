@@ -1,7 +1,24 @@
-# CMakeLists.txt
+# /**
+#  * SPDX-FileComment: CMake configuration for the project
+#  * SPDX-FileType: SOURCE
+#  * SPDX-FileContributor: ZHENG Robert
+#  * SPDX-FileCopyrightText: 2026 ZHENG Robert
+#  * SPDX-License-Identifier: Apache-2.0
+#  *
+#  * @file CMakeLists.txt
+#  * @brief Build system configuration for static linking and compilation.
+#  * @version 1.2.0
+#  * @date 2026-04-08
+#  *
+#  * @author ZHENG Robert (robert@hase-zheng.net)
+#  * @copyright Copyright (c) 2026 ZHENG Robert
+#  *
+#  * @license Apache-2.0
+#  */
+
 cmake_minimum_required(VERSION 3.28)
 project(cxx_docu_gen
-    VERSION 1.1.0
+    VERSION 1.2.0
     DESCRIPTION "C++23 Documentation Generator"
     HOMEPAGE_URL "https://github.com/Zheng-Bote/cxx_docu_gen"
     LANGUAGES CXX)
@@ -35,7 +52,7 @@ if(MSVC)
     target_compile_options(cxx_docu_gen PRIVATE /std:c++latest /W4)
 else()
     # Static linking of standard libraries for GCC/Clang
-    target_link_options(cxx_docu_gen PRIVATE -static-libstdc++ -static-libgcc)
+    target_link_options(cxx_docu_gen PRIVATE -static -static-libstdc++ -static-libgcc)
     target_compile_options(cxx_docu_gen PRIVATE -std=c++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion)
 endif()
 
