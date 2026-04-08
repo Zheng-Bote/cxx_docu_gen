@@ -35,11 +35,11 @@ jobs:
       - name: Run depdiscover Action
         uses: Zheng-Bote/depdiscover@v1
         with:
-          project-name: "AI plugin-system"
+          project-name: "CXX Source Docu"
           compile-commands: "build/compile_commands.json"
           libs: "build/libs.txt"
           cmake: "CMakeLists.txt"
-          fail-on-cvss: 10.0 # Because we have sample CVEs
+          fail-on-cvss: 7.0
 
       - name: Upload SBOM and Security Reports
         if: always()
