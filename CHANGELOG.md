@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [[1.2.0] - 2026-04-08](#120---2026-04-08)
+  - [Added](#added)
+  - [Changed](#changed)
+- [[1.1.0] - 2026-03-29](#110---2026-03-29)
+  - [Added](#added-1)
+- [[1.0.0] - 2026-03-29](#100---2026-03-29)
+  - [Added](#added-2)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---

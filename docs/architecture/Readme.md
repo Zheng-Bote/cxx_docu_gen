@@ -7,6 +7,15 @@ The `cxx_docu_gen` is a C++23-based documentation tool that extracts Doxygen com
 ---
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Bounded Context Diagram](#bounded-context-diagram)
+- [Component Diagram](#component-diagram)
+- [Sequence Diagram](#sequence-diagram)
+- [Class Diagram (Data Models)](#class-diagram-data-models)
+- [Design Decisions](#design-decisions)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
