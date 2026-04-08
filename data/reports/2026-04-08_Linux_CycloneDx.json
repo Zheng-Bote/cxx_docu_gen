@@ -1,0 +1,21 @@
+{
+  "bomFormat": "CycloneDX",
+  "components": [],
+  "metadata": {
+    "component": {
+      "name": "\"AI",
+      "type": "application"
+    },
+    "timestamp": "2026-04-08T16:42:27Z",
+    "tools": [
+      {
+        "name": "depdiscover",
+        "vendor": "ZHENG Bote",
+        "version": "1.5.0"
+      }
+    ]
+  },
+  "serialNumber": "urn:uuid:865490e4-5b42-453b-b524-131acfd43ebf",
+  "specVersion": "1.4",
+  "version": 1
+}

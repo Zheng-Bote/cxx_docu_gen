@@ -1,0 +1,18 @@
+{
+  "dependencies": [],
+  "header": {
+    "project": {
+      "name": "\"AI",
+      "workspace_root": "/home/runner/work/cxx_docu_gen/cxx_docu_gen"
+    },
+    "scan_date": "2026-04-08",
+    "schema_version": "1.2",
+    "tool": {
+      "author": "ZHENG Bote",
+      "description": "Native C++ Dependency Scanner & SBOM Generator",
+      "homepage": "https://github.com/Zheng-Bote/depdiscover",
+      "name": "depdiscover",
+      "version": "1.5.0"
+    }
+  }
+}
