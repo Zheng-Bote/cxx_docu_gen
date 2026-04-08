@@ -17,13 +17,6 @@
 | **License** | Apache-2.0 |
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [API Documentation](#api-documentation)
-  - [`namespace docu `](#namespace-docu-)
-  - [`[[nodiscard]] std::expected<FileDoc, std::string> parse_file(const std::filesystem::path& path, const std::filesystem::path& root_dir)`](#nodiscard-stdexpectedfiledoc-stdstring-parse_fileconst-stdfilesystempath-path-const-stdfilesystempath-root_dir)
-
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## API Documentation
