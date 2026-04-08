@@ -3,10 +3,10 @@
   "components": [],
   "metadata": {
     "component": {
-      "name": "\"AI",
+      "name": "\"CXX",
       "type": "application"
     },
-    "timestamp": "2026-04-08T16:42:27Z",
+    "timestamp": "2026-04-08T16:45:41Z",
     "tools": [
       {
         "name": "depdiscover",
@@ -15,7 +15,7 @@
       }
     ]
   },
-  "serialNumber": "urn:uuid:865490e4-5b42-453b-b524-131acfd43ebf",
+  "serialNumber": "urn:uuid:a2c6238a-90a0-4f3c-accb-98347a13657a",
   "specVersion": "1.4",
   "version": 1
 }

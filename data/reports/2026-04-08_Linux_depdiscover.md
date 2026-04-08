@@ -1,4 +1,4 @@
-# SBOM Security Report: "AI
+# SBOM Security Report: "CXX
 
 - **Scan Date:** 2026-04-08
 - **Generator Tool:** depdiscover v1.5.0
